@@ -209,7 +209,7 @@ function deepEqual(firstObject, secondObject)
             deepEqual(firstObject[key], secondObject[key])));
 }
 
-   
+
 module.exports = {
     isInteger,
     even,
