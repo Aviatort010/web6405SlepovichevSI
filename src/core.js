@@ -203,12 +203,10 @@ function deepEqual(firstObject, secondObject)
     // Если один аргумент массив, а другой - обычный объект, они не равны
     if (Array.isArray(firstObject) || Array.isArray(secondObject)) return false;
 
-    const keysA = Object.keys(firstObject),
-        keysB = Object.keys(secondObject);
-
-    return (keysA.length === keysB.length &&
-        keysA.every((key) => keysB.includes(key) &&
-        deepEqual(firstObject[key], secondObject[key])));
+    const keysA = Object.keys(firstObject), keysB = Object.keys(secondObject);
+    // Элементы
+    return (keysA.length === keysB.length && keysA.every((key) => keysB.includes(key) &&
+            deepEqual(firstObject[key], secondObject[key])));
 }
 
 module.exports = {
