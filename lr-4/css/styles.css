@@ -1,0 +1,758 @@
+/*
+Цветовая палитра:
+- Основной акцент: #E7D147 (ярко-жёлтый)
+- Фон: #000000 (чёрный)
+- Акцентный красный: #FF2E2E
+- Дополнительный: #8b4513 (коричневый)
+*/
+
+/* ==================== ОСНОВНАЯ СТРУКТУРА ==================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #E7D147;
+    background-color: #000000;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* ==================== HEADER ==================== */
+.header-wrapper {
+    background: linear-gradient(to bottom, #ff2e2e7e, #000000, #0a0502);
+    border-bottom: 3px solid #FF2E2E;
+    position: relative;
+    width: 100%;
+}
+
+.main-header {
+    background: transparent;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.main-header::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #E7D147, transparent);
+    animation: shine 3s infinite;
+}
+
+.logo-container {
+    margin-right: 40px;
+}
+
+.main-logo {
+    height: 60px;
+    width: auto;
+}
+
+.current-page {
+    position: absolute;
+    right: 20px;
+    color: #FF2E2E;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== НАВИГАЦИЯ ==================== */
+.left-nav {
+    margin-left: 40px;
+    flex-grow: 1;
+}
+
+.left-nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.left-nav li {
+    display: block;
+    margin: 0;
+}
+
+.left-nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s;
+    background: #FF2E2E;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #FF2E2E;
+}
+
+.left-nav a:hover {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+/* ==================== FLEXBOX СЕКЦИЯ ==================== */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    margin: 40px 0;
+}
+
+.flex-item {
+    flex: 1 1 300px;
+    background: linear-gradient(135deg, #8b4513, #5a2d0c);
+    border: 2px solid #E7D147;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.flex-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #FF2E2E;
+}
+
+.flex-item h3 {
+    color: #E7D147;
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.flex-item p {
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+
+/* ==================== АНИМАЦИЯ КОСТЕЙ ==================== */
+.animation-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.dice-animation {
+    width: 100px;
+    height: 100px;
+    background: #E7D147;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    user-select: none;
+    animation: dice-roll 2s infinite;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.dice-dots {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    padding: 5px;
+}
+
+.dice-dot {
+    background-color: #000;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Расположение точек для каждого значения кубика */
+.dice-one .dice-dot {
+    grid-area: 2 / 2;
+}
+
+.dice-two {
+    grid-template-areas: 
+        ". . top"
+        ". . ."
+        "bottom . .";
+}
+.dice-two .dice-dot:nth-child(1) {
+    grid-area: top;
+}
+.dice-two .dice-dot:nth-child(2) {
+    grid-area: bottom;
+}
+
+.dice-three {
+    grid-template-areas: 
+        ". . top"
+        ". center ."
+        "bottom . .";
+}
+.dice-three .dice-dot:nth-child(1) {
+    grid-area: top;
+}
+.dice-three .dice-dot:nth-child(2) {
+    grid-area: center;
+}
+.dice-three .dice-dot:nth-child(3) {
+    grid-area: bottom;
+}
+
+.dice-four {
+    grid-template-areas: 
+        "top-left . top-right"
+        ". . ."
+        "bottom-left . bottom-right";
+}
+.dice-four .dice-dot:nth-child(1) {
+    grid-area: top-left;
+}
+.dice-four .dice-dot:nth-child(2) {
+    grid-area: top-right;
+}
+.dice-four .dice-dot:nth-child(3) {
+    grid-area: bottom-left;
+}
+.dice-four .dice-dot:nth-child(4) {
+    grid-area: bottom-right;
+}
+
+.dice-five {
+    grid-template-areas: 
+        "top-left . top-right"
+        ". center ."
+        "bottom-left . bottom-right";
+}
+.dice-five .dice-dot:nth-child(1) {
+    grid-area: top-left;
+}
+.dice-five .dice-dot:nth-child(2) {
+    grid-area: top-right;
+}
+.dice-five .dice-dot:nth-child(3) {
+    grid-area: center;
+}
+.dice-five .dice-dot:nth-child(4) {
+    grid-area: bottom-left;
+}
+.dice-five .dice-dot:nth-child(5) {
+    grid-area: bottom-right;
+}
+
+.dice-six {
+    grid-template-areas: 
+        "top-left . top-right"
+        "middle-left . middle-right"
+        "bottom-left . bottom-right";
+}
+.dice-six .dice-dot:nth-child(1) {
+    grid-area: top-left;
+}
+.dice-six .dice-dot:nth-child(2) {
+    grid-area: top-right;
+}
+.dice-six .dice-dot:nth-child(3) {
+    grid-area: middle-left;
+}
+.dice-six .dice-dot:nth-child(4) {
+    grid-area: middle-right;
+}
+.dice-six .dice-dot:nth-child(5) {
+    grid-area: bottom-left;
+}
+.dice-six .dice-dot:nth-child(6) {
+    grid-area: bottom-right;
+}
+
+@keyframes dice-roll {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.3); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+#rollButton {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 25px;
+    background: #FF2E2E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+/* ==================== ОСНОВНОЙ КОНТЕНТ ==================== */
+.page-title {
+    color: #FF2E2E;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2.2em;
+    text-shadow: 0 0 5px rgba(255, 46, 46, 0.5);
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main-banner {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    border: 2px solid #2c1e15;
+}
+
+.features {
+    background: rgba(10, 5, 2, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.features h2 {
+    color: #E7D147;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
+
+.features ul {
+    padding-left: 20px;
+}
+
+.features li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.features p {
+    font-style: italic;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* ==================== ГАЛЛЕРЕЯ РАС ==================== */
+.race-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.race-card {
+    background: linear-gradient(to bottom, #0a0502, #1a0d07);
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.race-image-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 3px solid #8b4513;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.race-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.race-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #FF2E2E, #E7D147, #FF2E2E);
+}
+
+.race-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 46, 46, 0.4);
+    border-color: #FF2E2E;
+}
+
+.race-card:hover img {
+    border-color: #E7D147;
+    transform: scale(1.05);
+}
+
+.race-card h3 {
+    color: #FF2E2E;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.race-card p {
+    color: #E7D147;
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.race-stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.race-stat {
+    background: rgba(139, 69, 19, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #E7D147;
+    font-size: 0.9em;
+    border: 1px solid #8b4513;
+}
+
+/* ==================== ТАБЛИЦА КЛАССОВ ==================== */
+.classes-table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #0a0502;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 46, 46, 0.3);
+}
+
+.classes-table th {
+    background: linear-gradient(to bottom, #FF2E2E, #8b4513);
+    color: #E7D147;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+.classes-table td {
+    padding: 12px 15px;
+    color: #E7D147;
+    border-bottom: 1px solid #FF2E2E;
+    transition: all 0.3s ease;
+}
+
+.classes-table tr:nth-child(even) {
+    background-color: rgba(139, 69, 19, 0.1);
+}
+
+.classes-table tr:hover td {
+    background-color: rgba(255, 46, 46, 0.2);
+    color: #ffffff;
+}
+
+.classes-table td:nth-child(1) {
+    text-align: left;
+    font-weight: bold;
+    color: #FF2E2E;
+}
+
+.classes-table td:nth-child(2),
+.classes-table td:nth-child(3) {
+    text-align: center;
+}
+
+.classes-table td:nth-child(4) {
+    text-align: center;
+    color: #E7D147;
+    font-size: 1.2em;
+}
+
+/* ==================== СПИСОК ЗАКЛИНАНИЙ ==================== */
+.spell-list {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom, #0a0502, #1a0d07);
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.spell-list h2 {
+    color: #FF2E2E;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 46, 46, 0.5);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.spell-list h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #E7D147, transparent);
+}
+
+.spell-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spell-list li {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: rgba(10, 5, 2, 0.7);
+    border-left: 4px solid #FF2E2E;
+    color: #E7D147;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    border-radius: 0 5px 5px 0;
+}
+
+.spell-list li:hover {
+    background: rgba(255, 46, 46, 0.2);
+    border-left-width: 6px;
+    transform: translateX(5px);
+}
+
+.spell-list li strong {
+    color: #FF2E2E;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.spell-list li::before {
+    content: "✨";
+    margin-right: 10px;
+    color: #E7D147;
+}
+
+.spell-level {
+    display: inline-block;
+    background: rgba(139, 69, 19, 0.5);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: #FF2E2E;
+    border: 1px solid #8b4513;
+}
+
+/* ==================== FOOTER ==================== */
+.footer-wrapper {
+    background: linear-gradient(to top, #ff2e2e7e, #000000, #0a0502);
+    border-top: 3px solid #FF2E2E;
+    width: 100%;
+    flex-shrink: 0;
+    margin-top: auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-main-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #FF2E2E;
+    text-shadow: 0 0 5px rgba(255, 46, 46, 0.5);
+    letter-spacing: 0.5px;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.footer-copyright {
+    font-size: 0.8em;
+    color: #FF2E2E;
+    position: relative;
+    padding-right: 15px;
+}
+
+.footer-copyright::after {
+    content: "⚔";
+    position: absolute;
+    right: -5px;
+    bottom: -2px;
+    font-size: 0.9em;
+    animation: swordBounce 1.5s infinite;
+}
+
+/* ==================== АНИМАЦИИ ==================== */
+@keyframes shine {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 5px rgba(255, 46, 46, 0.5); }
+    to { text-shadow: 0 0 15px rgba(255, 46, 46, 0.8); }
+}
+
+@keyframes swordBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(10deg); }
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .logo-container {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .left-nav {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .left-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .flex-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .flex-item {
+        flex: 1 1 auto;
+    }
+    
+    .race-gallery {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    
+    .race-card {
+        padding: 15px;
+    }
+    
+    .race-image-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .classes-table {
+        width: 100%;
+        font-size: 0.9em;
+    }
+    
+    .classes-table th,
+    .classes-table td {
+        padding: 8px 10px;
+    }
+    
+    .spell-list {
+        padding: 20px;
+        margin: 20px 15px;
+    }
+    
+    .spell-list li {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+    
+    .spell-list li strong {
+        min-width: 120px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .footer-wrapper {
+        height: 50px;
+    }
+    
+    .footer-main-text {
+        font-size: 0.9em;
+    }
+    
+    .footer-copyright {
+        font-size: 0.7em;
+    }
+}

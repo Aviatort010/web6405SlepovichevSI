@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | D&D</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Шапка сайта -->
+    <div class="header-wrapper">
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="resurses/dnd-logo.png" alt="Логотип D&D" class="main-logo">
+            </div>
+            <nav class="left-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="classes.html">Классы</a></li>
+                    <li><a href="races.html">Расы</a></li>
+                    <li><a href="spells.html">Заклинания</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="current-page">
+                <span>Главная</span>
+            </div>
+        </header>
+    </div>
+    
+    <main class="main-content">
+
+        <!-- Основной контент -->
+        <section class="intro">
+            <h1>Легендарное настольное приключение</h1>
+            <img src="resurses/dnd-banner.jpg" alt="Баннер D&D" class="main-banner">
+        </section>
+        
+        <!-- Блок с анимацией -->
+        <section class="animation-section">
+            <div class="dice-animation" id="dice">D20</div>
+            <button id="rollButton">Бросить D6</button>
+        </section>
+
+        <!-- Flexbox-разметка -->
+        <section class="flex-container">
+            <div class="flex-item" onclick="location.href='classes.html'">
+                <h3>Классы</h3>
+                <p>Выберите свой путь: воин, маг, жрец или плут</p>
+            </div>
+            <div class="flex-item" onclick="location.href='races.html'">
+                <h3>Расы</h3>
+                <p>От людей до эльфов - найдите свое происхождение</p>
+            </div>
+            <div class="flex-item" onclick="location.href='spells.html'">
+                <h3>Заклинания</h3>
+                <p>Магия, способная изменить реальность</p>
+            </div>
+        </section>
+        
+        <section class="features">
+            <h2>Почему я начал играть в D&D?</h2>
+            <ul>
+                <li>Новые знакомства и расширение круга общения</li>
+                <li>Интересное и уютное время вместе с новыми друзьями</li>
+                <li>Стратегическое и тактическое мышление</li>
+                <li>Незабываемые истории и приключения</li>
+            </ul>
+            <p>Всё вместе помогло мне справиться с внутренними проблемами</p>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <div class="footer-wrapper">
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-main-text">
+                    Dungeons & Dragons - Путь, длиною в вашу фантазию
+                </div>
+                <div class="footer-copyright">
+                    made by Aviatort010 (6405_Slepovichev_SI)
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

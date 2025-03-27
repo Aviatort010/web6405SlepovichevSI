@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расы | D&D</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* Дополнительные стили для Grid-раскладки */
+        .race-gallery {
+            display: grid;
+            grid-template-areas:
+                "human elf"
+                "dwarf half-elf";
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .race-gallery {
+                grid-template-areas:
+                    "human"
+                    "elf"
+                    "dwarf"
+                    "half-elf";
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <div class="header-wrapper">
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="resurses/dnd-logo.png" alt="Логотип D&D" class="main-logo">
+            </div>
+            <nav class="left-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="classes.html">Классы</a></li>
+                    <li><a href="races.html">Расы</a></li>
+                    <li><a href="spells.html">Заклинания</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="current-page">
+                <span>Расы</span>
+            </div>
+        </header>
+    </div>
+
+    <!-- Основное содержимое -->
+    <main class="main-content">
+        <h1 class="page-title">Игровые расы Dungeons & Dragons</h1>
+        
+        <div class="race-gallery">
+            <!-- Карточка человека -->
+            <div class="race-card" style="grid-area: human" onclick="showRaceDetails('human')">
+                <div class="race-image-container">
+                    <img src="resurses/human.jpg" alt="Человек" class="race-image">
+                </div>
+                <h3>Человек</h3>
+                <p>Адаптирующаяся и амбициозная раса, не имеющая врожденных склонностей</p>
+                <div class="race-stats">
+                    <span class="stat-badge">+1 ко всем характеристикам</span>
+                    <span class="stat-badge">Дополнительный навык</span>
+                </div>
+                <div class="race-details" id="human-details">
+                    <p>Люди - самая разнообразная и амбициозная раса. Их короткая жизнь заставляет их стремиться к величию здесь и сейчас.</p>
+                </div>
+            </div>
+
+            <!-- Карточка эльфа -->
+            <div class="race-card" style="grid-area: elf" onclick="showRaceDetails('elf')">
+                <div class="race-image-container">
+                    <img src="resurses/elf.jpg" alt="Эльф" class="race-image">
+                </div>
+                <h3>Эльф</h3>
+                <p>Грациозные магические существа, связанные с природой</p>
+                <div class="race-stats">
+                    <span class="stat-badge">+2 Ловкость</span>
+                    <span class="stat-badge">Темновидение</span>
+                    <span class="stat-badge">Иммунитет к магии сна</span>
+                </div>
+                <div class="race-details" id="elf-details">
+                    <p>Эльфы - утонченные и таинственные, обладают врожденной магией и невероятной грацией.</p>
+                </div>
+            </div>
+
+            <!-- Карточка дварфа -->
+            <div class="race-card" style="grid-area: dwarf" onclick="showRaceDetails('dwarf')">
+                <div class="race-image-container">
+                    <img src="resurses/dworf.jpg" alt="Дварф" class="race-image">
+                </div>
+                <h3>Дварф</h3>
+                <p>Крепкие и выносливые мастера подземелий</p>
+                <div class="race-stats">
+                    <span class="stat-badge">+2 Телосложение</span>
+                    <span class="stat-badge">Устойчивость к ядам</span>
+                    <span class="stat-badge">Мастерство в работе с камнем</span>
+                </div>
+                <div class="race-details" id="dwarf-details">
+                    <p>Дварфы известны своей выносливостью, упрямством и мастерством в кузнечном деле.</p>
+                </div>
+            </div>
+
+            <!-- Карточка полуэльфа -->
+            <div class="race-card" style="grid-area: half-elf" onclick="showRaceDetails('half-elf')">
+                <div class="race-image-container">
+                    <img src="resurses/half-elf.jpg" alt="Полуэльф" class="race-image">
+                </div>
+                <h3>Полуэльф</h3>
+                <p>Дипломатичные потомки людей и эльфов</p>
+                <div class="race-stats">
+                    <span class="stat-badge">+2 Харизма</span>
+                    <span class="stat-badge">+1 к двум другим характеристикам</span>
+                    <span class="stat-badge">Наследственная магия</span>
+                </div>
+                <div class="race-details" id="half-elf-details">
+                    <p>Полуэльфы сочетают лучшие качества людей и эльфов, часто становясь искусными дипломатами.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Дополнительная информация -->
+        <section class="race-info">
+            <h2>Как выбрать расу?</h2>
+            <p>Каждая раса предоставляет уникальные бонусы и особенности. Выбирайте ту, которая лучше всего соответствует вашему стилю игры:</p>
+            <ul class="race-tips">
+                <li><strong>Воинам</strong> подойдут: Дварф, Драконорожденный</li>
+                <li><strong>Магам</strong> подойдут: Эльф, Тифлинг</li>
+                <li><strong>Ловким персонажам</strong>: Полурослик, Лесной эльф</li>
+                <li><strong>Универсальный выбор</strong>: Человек, Полуэльф</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <div class="footer-wrapper">
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-main-text">
+                    Dungeons & Dragons - Путь, длиною в вашу фантазию
+                </div>
+                <div class="footer-copyright">
+                    made by Aviatort010 (6405_Slepovichev_SI)
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Функция для показа деталей расы
+        function showRaceDetails(raceId) {
+            const detailsElement = document.getElementById(`${raceId}-details`);
+            detailsElement.classList.toggle('active');
+            
+            // Анимация
+            if (detailsElement.classList.contains('active')) {
+                detailsElement.style.maxHeight = detailsElement.scrollHeight + 'px';
+            } else {
+                detailsElement.style.maxHeight = '0';
+            }
+        }
+
+        // Загрузка данных о расах (имитация асинхронного запроса)
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // В реальном проекте здесь был бы fetch к API
+                console.log('Загрузка данных о расах...');
+                
+                // Можно добавить индикатор загрузки
+                const loader = document.createElement('div');
+                loader.className = 'loader';
+                document.querySelector('.race-gallery').appendChild(loader);
+                
+                // Имитация задержки загрузки
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Удаляем индикатор
+                loader.remove();
+                
+            } catch (error) {
+                console.error('Ошибка загрузки данных:', error);
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.textContent = 'Не удалось загрузить данные о расах';
+                document.querySelector('main').appendChild(errorElement);
+            }
+        });
+    </script>
+</body>
+</html>
